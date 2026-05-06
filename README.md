@@ -1,4 +1,4 @@
-# bizzanteen.github.io
+# Portfolio
 
 Personal portfolio site, live at [bizzanteen.com](https://bizzanteen.com).
 
