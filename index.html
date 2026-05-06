@@ -12,7 +12,8 @@
 
     <nav>
         <a id="arrow" href="#top" style="text-decoration: none">^</a>
-        <a href="#about">About me</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -22,7 +23,7 @@
         <section class="splash" alt="Éamon Cullen">
             <div class="title">
                 <h1>Hi,<br>I'm Éamon</h1>
-                <h1 id='web-developer' title="Web Developer">></span><span id='typing-1'>W</span><span id='typing-2'>e</span><span id='typing-3'>b</span><span id='typing-4'>&nbsp;</span><span id='typing-5'>D</span><span id='typing-6'>e</span><span id='typing-7'>v</span><span id='typing-8'>e</span><span id='typing-9'>l</span><span id='typing-10'>o</span><span id='typing-11'>p</span><span id='typing-12'>e</span><span id='typing-13'>r</span></h1>
+                <h1 id='web-developer'>><span id='typing-container'></span></h1>
             </div>
             <a href="#about"><img src="images/arrow-down.png"></a>
         </section>
@@ -33,90 +34,127 @@
             <h2>About Me</h2>
             <div class="about-columns">
                 <p>Nice to meet you!<br><br>
-                    I'm an Irish front-end developer based in Spain. 
-                    I hold a BSc in Computer Science and Information from the University of Galway.<br><br>
-                    I have a wealth of experience in working in start-up environments, 
-                    primarily supporting the use of payments APIs and Javascript integrations.</p>
+                    I'm an Irish Technical Support Engineer based in Spain, with 6+ years of experience in SaaS and API-first environments.<br><br>
+                    I hold a BSc in Computer Science and Information Technology from the University of Galway. I specialise in HTTP/REST debugging, internal tooling, and customer-facing technical support — consistently rated above 92% CSAT.</p>
                 <img src="images/profile.jpg" alt="A photo of Éamon">
             </div>
-            
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Postman</h3>
+                        <span class="experience-date">Sep 2023 – Present</span>
+                    </div>
+                    <p class="experience-role">Technical Support Engineer</p>
+                    <ul class="experience-bullets">
+                        <li>Maintained 92%+ CSAT handling complex API and HTTP debugging across enterprise accounts</li>
+                        <li>Built Log Analyser — a Next.js tool for HAR file timeline and pattern analysis, adopted team-wide</li>
+                        <li>Hired and onboarded 4 engineers, compressing ramp time from one month to the first week</li>
+                        <li>Represented support on solutions engineering calls with enterprise prospects</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Primer</h3>
+                        <span class="experience-date">Aug 2022 – Dec 2022</span>
+                    </div>
+                    <p class="experience-role">Technical Support Engineer</p>
+                    <ul class="experience-bullets">
+                        <li>Debugged payments API integrations across JavaScript and REST-based merchant implementations</li>
+                        <li>Built DataDog dashboards and Slack alerting for real-time payment health monitoring</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Intercom</h3>
+                        <span class="experience-date">Jun 2019 – Jun 2022</span>
+                    </div>
+                    <p class="experience-role">Technical Support Engineer</p>
+                    <ul class="experience-bullets">
+                        <li>Resolved 40+ tickets per week against a team KPI of 23</li>
+                        <li>Established a structured Support–Product feedback loop to surface recurring issues upstream</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects">
                 <div>
-                    <img src="images/project icon.png" alt="project screenshot">
-                    <h3>Project 1</h3>
-                    <p>A brief description of the project and technologies used.</p>
+                    <img src="images/log.png" alt="Log Analyser screenshot">
+                    <h3>Log Analyser</h3>
+                    <p>Internal tool for Postman's support team to triage HAR files from Zendesk tickets. Uploads a HAR file via ticket URL, automatically redacts sensitive data (auth headers, cookies, tokens, POST body secrets), and surfaces a clean, readable view for debugging. Adopted team-wide.</p>
+                    <div class="project-stack">
+                        <span>React</span>
+                        <span>Vite</span>
+                        <span>Tailwind CSS</span>
+                        <span>Express</span>
+                        <span>Zendesk API</span>
+                    </div>
+                    <a href="https://github.com/bizzanteen/Log-Analyser" target="_blank">View on GitHub →</a>
                 </div>
                 <div>
-                    <img src="images/project icon.png" alt="project screenshot">
-                    <h3>Project 2</h3>
-                    <p>A brief description of the project and technologies used.</p>
-                </div>
-                <div>
-                    <img src="images/project icon.png" alt="project screenshot">
-                    <h3>Project 3</h3>
-                    <p>A brief description of the project and technologies used.</p>
+                    <img src="images/project icon.png" alt="Payment Health Monitoring">
+                    <h3>Payment Health Monitoring</h3>
+                    <p>Observability tooling for Primer's payments infrastructure. Built DataDog dashboards to track transaction success rates and error patterns across merchant integrations, with Slack alerting to surface degraded payment flows in real time.</p>
+                    <div class="project-stack">
+                        <span>DataDog</span>
+                        <span>Slack API</span>
+                        <span>REST API</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
-            <div class="skills">
-              <div class="skill">
-                <img src="images/html.png" alt="html">
-                <div class="overlay">
-                  <h3>Hypertext Markup Language</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>HTML &amp; CSS</li>
+                    </ul>
                 </div>
-              </div>
-              <div class="skill">
-                <img src="images/css.png" alt="css">
-                <div class="overlay">
-                  <h3>Cascading Style Sheets</h3>
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <ul>
+                        <li>React</li>
+                        <li>Next.js</li>
+                        <li>Ruby on Rails</li>
+                        <li>REST API</li>
+                    </ul>
                 </div>
-              </div>
-              <div class="skill">
-                <img src="images/javascript.png" alt="javascript">
-                <div class="overlay">
-                  <h3>JavaScript</h3>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Postman</li>
+                        <li>DataDog</li>
+                        <li>Graylog</li>
+                        <li>Zendesk</li>
+                        <li>Intercom</li>
+                    </ul>
                 </div>
-              </div>
-              <div class="skill">
-                <img src="images/agile.png" alt="agile">
-                <div class="overlay">
-                  <h3>Agile Method</h3>
-                </div>
-              </div>
-              <div class="skill">
-                <img src="images/log.png" alt="logging software">
-                <div class="overlay">
-                  <h3>Graylogs & Datadog</h3>
-                </div>
-              </div>
-              <div class="skill">
-                <img src="images/creative-cloud.png" alt="adobe creative cloud">
-                <div class="overlay">
-                  <h3>Adobe Creative Cloud</h3>
-                </div>
-              </div>
             </div>
-          </section>
-          
+        </section>
 
         <section id="contact" class="contact">
             <h2>Contact</h2>
             <a href="mailto:eamonc123@gmail.com">eamonc123@gmail.com</a>
-            <a href="https://github.com/bizzanteen">Github</a>
-            <a href="https://www.linkedin.com/in/eamon-cullen/">LinkedIn</a>
+            <a href="tel:+34624600968">(+34) 624 600 968</a>
+            <a href="https://github.com/bizzanteen" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/eamon-cullen/" target="_blank">LinkedIn</a>
         </section>
 
         </div>
     </main>
 
-
-	<script src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

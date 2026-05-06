@@ -121,11 +121,33 @@
 
   .splash .title {
     display: inline-block;
+    position: relative;
+    padding-bottom: 5em;
   }
 
-  .splash h1{
-    padding:0 0;
-    width:100%;
+  .splash .title::after {
+    content: '>Support Engineer';
+    display: block;
+    font-family: Consolas, monaco, monospace;
+    font-size: 4em;
+    font-weight: 700;
+    white-space: nowrap;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .splash h1 {
+    padding: 0;
+    width: 100%;
+  }
+
+  #web-developer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    width: auto;
   }
 
   .splash a{
@@ -175,21 +197,27 @@
   /* Projects section */
   .projects {
     display: flex;
+    align-items: stretch;
+    gap: 12px;
     text-align: center;
   }
-  
-  .projects * {
-    margin: 5px 0;
-  }
-  
-  .projects img {
-    width: 33.3%;
-  }
-  
-  .projects div {
+
+  .projects > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.194);
-    margin: 0 5px;
-    padding: 0 10px 5px 10px;
+    padding: 16px 14px 14px 14px;
+  }
+
+  .projects > div > * {
+    margin: 6px 0;
+  }
+
+  .projects img {
+    width: 40%;
+    height: auto;
   }
   
 /* Skills section */
@@ -243,6 +271,119 @@
 }
 
   
+  /* Experience section */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .experience-item {
+    border-left: 3px solid #ff731c;
+    padding-left: 20px;
+  }
+
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .experience-date {
+    font-family: Consolas, monaco, monospace;
+    color: #ff731c;
+    font-size: 0.9em;
+    white-space: nowrap;
+  }
+
+  .experience-role {
+    color: #aaa;
+    font-style: italic;
+    padding: 4px 0 10px 0;
+    font-size: 1em;
+  }
+
+  .experience-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .experience-bullets li {
+    font-family: Consolas, monaco, monospace;
+    color: white;
+    font-size: 0.95em;
+    line-height: 1.6em;
+    padding: 3px 0;
+    font-weight: 400;
+  }
+
+  .experience-bullets li::before {
+    content: '— ';
+    color: #ff731c;
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+  }
+
+  .skill-category {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .skill-category h3 {
+    color: #ff731c;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid #444;
+    margin-bottom: 10px;
+  }
+
+  .skill-category ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .skill-category ul li {
+    font-family: Consolas, monaco, monospace;
+    color: white;
+    font-weight: 400;
+    font-size: 0.95em;
+    padding: 5px 0;
+  }
+
+  .skill-category ul li::before {
+    content: '> ';
+    color: #ff731c;
+  }
+
+  /* Project stack pills */
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 0 6px 0;
+  }
+
+  .project-stack span {
+    font-family: Consolas, monaco, monospace;
+    font-size: 0.75em;
+    color: #ff731c;
+    border: 1px solid #ff731c;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+
   /* Contact section */
   .contact {
     display: flex;
@@ -334,6 +475,17 @@ a, p {
     font-size: 1em;
   }
 
+  /* Experience section small screen */
+  .experience-header {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .skills-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
   /* About section */
 
   .about-columns {
@@ -350,12 +502,11 @@ a, p {
   /* Projects section */
 
   .projects {
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
   }
 
-  .projects div {
-    margin: 5px 0;
+  .projects > div {
+    width: 100%;
   }
 
   

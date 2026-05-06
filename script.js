@@ -1,50 +1,45 @@
-let textLength = 13;
-let i = 1;
-let typingSpeed = 70;
-let isPaused = false;
+const phrases = ['Web Developer', 'Support Engineer', 'API Expert'];
+let phraseIndex = 0;
+let charIndex = 0;
+const typingSpeed = 70;
+const erasingSpeed = 35;
+const pauseAfterType = 2000;
+const pauseBeforeType = 400;
 
-const opacityFunc = () => {
-  if (i <= textLength) {
-    let currentElementID = "typing-" + i;
-    let previousElementID = "typing-" + (i - 1)
+const container = document.getElementById('typing-container');
 
-    let element = document.getElementById(currentElementID);
-    let previousElement = document.getElementById(previousElementID)
+function typeChar() {
+  const phrase = phrases[phraseIndex];
+  const spans = container.querySelectorAll('span');
 
-    element.style.textDecoration = 'underline';
-
-    setTimeout(() => {
-      element.style.opacity = 1;
-      if (previousElement){previousElement.style.textDecoration = 'none';}
-      i++;
-      if (!isPaused) {
-        opacityFunc(); // call the function recursively to process the next element
-      }
-    }, typingSpeed);
-  } else {
-    i = 1; // reset the counter
+  if (spans.length > 0) {
+    spans[spans.length - 1].style.textDecoration = 'none';
   }
-};
 
-const interval = setInterval(() => {
-  if (!document.hidden) {
-    for (let j = 1; j <= textLength; j++) {
-      let currentElementID = "typing-" + j;
-      let element = document.getElementById(currentElementID);
-      if (element) {
-        element.style.opacity = 0;
-      }
-    }
-    opacityFunc();
+  if (charIndex < phrase.length) {
+    const span = document.createElement('span');
+    span.textContent = phrase[charIndex] === ' ' ? ' ' : phrase[charIndex];
+    span.style.opacity = '0';
+    span.style.textDecoration = 'underline';
+    container.appendChild(span);
+    setTimeout(() => { span.style.opacity = '1'; }, 10);
+    charIndex++;
+    setTimeout(typeChar, typingSpeed);
   } else {
-    isPaused = true;
+    setTimeout(eraseChar, pauseAfterType);
   }
-}, 2000); // repeat after 2 seconds
+}
 
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    isPaused = true;
+function eraseChar() {
+  const spans = container.querySelectorAll('span');
+  if (spans.length > 0) {
+    spans[spans.length - 1].remove();
+    setTimeout(eraseChar, erasingSpeed);
   } else {
-    isPaused = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    charIndex = 0;
+    setTimeout(typeChar, pauseBeforeType);
   }
-});
+}
+
+typeChar();
